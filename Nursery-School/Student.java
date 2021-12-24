@@ -1,3 +1,4 @@
+package Nursery-School;
 
 public class Student {
 private String id;//Unique student id
