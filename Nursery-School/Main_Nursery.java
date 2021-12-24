@@ -42,7 +42,7 @@ public class Main_Nursery {
 				Teacher.AMKA_Index();
 				break;
 			default:
-				System.out.println("ËÜèïò åéóáãùãÞ");
+				System.out.println("Wrong Input!");
 			}
 		}
 	}
