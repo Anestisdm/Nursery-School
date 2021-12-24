@@ -1,3 +1,5 @@
+package Nursery-School;
+
 import java.util.Scanner;
 
 public class SchoolYear {
