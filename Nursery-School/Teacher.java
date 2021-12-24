@@ -1,4 +1,4 @@
-package Nursery-School;
+package Nursery;
 
 import java.util.Scanner;
 
@@ -48,7 +48,7 @@ public static void AMKA_Index() {
 	Scanner scanner=new Scanner(System.in);
 	boolean x=false;//Auxiliary variable where it tells us if the Social Security Number entered by the user exists in memory
 	while (x==false) {
-		System.out.println("Please enter the teacher's Social Security Number: \ n [(eg 17077732902) or enter 0 to return to the Menu]");
+		System.out.println("Please enter the teacher's Social Security Number: \n [(eg 17077732902) or enter 0 to return to the Menu]");
 		String input = scanner.next();
 		//We give the user the option to press 0 and end the search
 		if (input.equals("0")) {

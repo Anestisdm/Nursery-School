@@ -1,4 +1,4 @@
-package Nursery-School;
+package Nursery;
 
 import java.util.Scanner;
 

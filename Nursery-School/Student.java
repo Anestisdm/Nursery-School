@@ -1,4 +1,4 @@
-package Nursery-School;
+package Nursery;
 
 public class Student {
 private String id;//Unique student id
