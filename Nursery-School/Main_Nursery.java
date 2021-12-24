@@ -15,7 +15,7 @@ public class Main_Nursery {
 			System.out.println("4.Search school year data");
 			System.out.println("5.Search for classes taken by each teacher in the school");
 			System.out.println("6.Search for teacher data via social security number");
-			System.out.println("   Εισάγετε επιλογή [1-6] :   ");
+			System.out.println("   Γ…Γ©Γ³ΓΓ£Γ¥Γ΄Γ¥ Γ¥Γ°Γ©Γ«Γ―Γ£Γ [1-6] :   ");
 			x= scanner.nextInt();
 
 			switch(x) {
@@ -40,7 +40,7 @@ public class Main_Nursery {
 				Teacher.AMKA_Index();
 				break;
 			default:
-				System.out.println("Λάθος εισαγωγή");
+				System.out.println("Γ‹ΓΓ¨Γ―Γ² Γ¥Γ©Γ³Γ΅Γ£ΓΉΓ£Γ");
 			}
 		}
 	}
@@ -67,7 +67,7 @@ public class Main_Nursery {
 		Student s3_19= new Student ("Dimitra Giannakou","07/02/2016");
 		Student s4_19= new Student ("Charalampos Kalogeras","28/11/2016");
 		Student s5_19= new Student ("Vasiliki Eleftheriadou","11/08/2016");
-		Student s6_19= new Student ("Nikolaos Vouroς","27/09/2015");
+		Student s6_19= new Student ("Nikolaos VouroΓ²","27/09/2015");
 		Student s7_19= new Student ("Ilias Galanopoulos","04/06/2015");
 		Student s8_19= new Student ("Athena Deli","11/01/2015");
 		Student s9_19= new Student ("Stella Ioannidou", "24/09/2015");
