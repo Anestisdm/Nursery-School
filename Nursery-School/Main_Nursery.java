@@ -17,7 +17,7 @@ public class Main_Nursery {
 			System.out.println("4.Search school year data");
 			System.out.println("5.Search for classes taken by each teacher in the school");
 			System.out.println("6.Search for teacher data via social security number");
-			System.out.println("   ÅéóÜãåôå åðéëïãÞ [1-6] :   ");
+			System.out.println("   Enter number [1-6] :   ");
 			x= scanner.nextInt();
 
 			switch(x) {
