@@ -1,4 +1,4 @@
-package Nursery-School;
+package Nursery;
 
 import java.util.Scanner;
 
@@ -95,7 +95,7 @@ public static void Student_Registration() {
 	boolean av;//Auxiliary variable where it will show us the availability of the class where the user has chosen
 	boolean x=false;//Auxiliary variable where it indicates to us if the user's selection was within the expected
 	while (x==false) {
-		System.out.println("In which section do you want to enroll the student? \ and [Enter 1: PreKindergarten or 2: kindergarten 0: Return to Menu]");
+		System.out.println("In which class do you want to enroll the student? \n [Enter 1: PreKindergarten or 2: kindergarten 0: Return to Menu]");
 		String input = scanner.next();
 		if (input.equals("1")) {
 			//First we find the availability in the current school year and in the classroom where the user chose
@@ -127,7 +127,7 @@ public static boolean Student_Index(String id,Student [] array) {
 			if (array[i].getId().equalsIgnoreCase(id)){
 				//We check if the id exists in the specific table type Student [] and if we find it we display an appropriate message to complete the deletion
 				Find_Id=true;
-				System.out.println("Are you sure you want to delete the student? \ n [Enter 1: Yes or 0: No]");
+				System.out.println("Are you sure you want to delete the student? \n [Enter 1: Yes or 0: No]");
 				boolean x=false;
 				while (x==false) {
 					String input = scanner.next();
@@ -145,7 +145,7 @@ public static boolean Student_Index(String id,Student [] array) {
 					else {
 						//If the answer is not as expected we continue to ask for an answer
 						System.out.println("Wrong choice");
-						System.out.println("Please enter an available option: \ n [Enter 1: Yes or 0: No]");
+						System.out.println("Please enter an available option: \n [Enter 1: Yes or 0: No]");
 					}
 				}
 				break;//We stop the outer loop as the id was found
@@ -160,7 +160,7 @@ public static void Student_Unregistration() {
 	boolean x=false;//Auxiliary variable where indicates if the user entered a registered id of the current school year
 	while (x==false) {
 		x=true;//Stop loop as the purpose is to execute the loop at least once
-		System.out.println("Please enter the student's id: \ n [(eg S190011) or enter 0 to return to Menu]");
+		System.out.println("Please enter the student's id: \n [(eg S190011) or enter 0 to return to Menu]");
 		String input = scanner.next();
 		if (input.equals("0")) {
 			break;//If the user selects 0 we exit the loop
@@ -196,7 +196,7 @@ public static void SchoolYear_Data() {
 	Scanner scanner=new Scanner(System.in);
 	boolean x=false;//Auxiliary variable where it indicates if the school year is entered correctly and is registered
 	while (x==false) {
-		System.out.println("Please enter school year: \ n [(eg 2018-2019) or enter 0 to return to Menu]");
+		System.out.println("Please enter school year: \n [(eg 2018-2019) or enter 0 to return to Menu]");
 		String input1 = scanner.next();
 		if (input1.equals("0")) {
 			break;//If the user selects 0 we exit the loop
@@ -209,7 +209,7 @@ public static void SchoolYear_Data() {
 					boolean y=false;
 					while (y==false) {
 						//We ask the user in which class he wants to search and we print the appropriate data
-						System.out.println("Please enter in which class you want to search: \ n [Enter 1: PreKindergarten or 2: Kindergarten or 0: Return to Menu]");
+						System.out.println("Please enter in which class you want to search: \n [Enter 1: PreKindergarten or 2: Kindergarten or 0: Return to Menu]");
 						String input2 = scanner.next();
 						if (input2.equals("1")) {
 							SchoolYear.Print_Data(SchoolYears[i].object1, SchoolYears[i].Students1);
