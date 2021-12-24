@@ -2,69 +2,69 @@ import java.util.Scanner;
 
 public class Teacher {
 
-private String id;//Μοναδικό id δασκάλου
-private String name;//Ονοματεπώνυμο δασκάλου
-private String AMKA;//ΑΜΚΑ δασκάλου
-private static Teacher[] Teachers = new Teacher[100];//Στατικός πίνακας που περιέχει όλα τα αντικείμενα τύπου Teacher
-private static int count = 0;//Μετρητής αντικειμένων τύπου Teacher όπου χρησιμεύει στην αποθήκευση των αντικειμένων στον στατικό πίνακα αλλα και στο να διατρέχουμε τον συγκεκριμένο πίνακα και να αποφεύγουμε την εξαίρεση NullPointerException
+private String id;//Unique teacher id
+private String name;//Teacher's name
+private String AMKA;//Social Security Number of Teacher
+private static Teacher[] Teachers = new Teacher[100];//Static table containing all Teacher type objects
+private static int count = 0;//Teacher object counter where it is used to store objects in the static table but also to run through the specific table and avoid the NullPointerException exception
 
 
-//Κατασκευαστής κλάσης Teacher
+//Constructor of Teacher class
 public Teacher(String name, String AMKA) {
-	Teachers[count] = this;//Αποθήκευση αντικειμένων στον στατικό πίνακα Teachers
+	Teachers[count] = this;//Storing objects in the Teachers static table
 	count++;		
-	this.id = "T"+SchoolYear.gety()+"00"+count;//Κατασκευή id αντικειμένων τύπου Student της μορφης T18001
+	this.id = "T"+SchoolYear.gety()+"00"+count;//Construction of Student type objects of the T18001 format
 	this.name = name;
 	this.AMKA = AMKA;
 }
 
-//Μέθοδος όπου επιστρέφει την μεταβλητή στιγμιοτύπου name
+//Method where it returns the instance variable name
 public String getName() {
 	return name;
 }
 
-//Μέθοδος όπου εκτυπώνει αναλυτικά ποιες τάξεις έχει αναλάβει κάθε καθηγητής
+//Method where it prints in detail which classes each teacher has undertaken
 public static void Teacher_Classes() {
-	//Διατρέχουμε τον πίνακα τον στατικό πίνακα Teachers
+	//We run the table the static table Teachers
 	for (int i=0;i<count;i++) {
-		//Εκτύπωση του ονόματος του εκάστοτε καθηγητή
-		System.out.println("\nΟι τάξεις του/της "+ Teachers[i].name+" είναι οι εξής:");
-		//Διατρέχουμε τον στατικό πίνακα SchoolYears και ελέγχουμε αν στην συγκεκριμένη χρονία βρίσκεται το όνομα του δασκάλου και στην συνέχει εκτυπώνουμε την σχολική χρονία καθώς και την τάξη όπου είχε αναλάβει
+		//Print the name of each teacher
+		System.out.println("\nHis / her classes "+ Teachers[i].name+" are the folowing:");
+		//We go through the static table SchoolYears and check if in that year is the name of the teacher and then we print the school year as well as the class where he had taken
 		for (int x=0;x<SchoolYear.getCount();x++) { 
 			if (Teachers[i].name.equals(SchoolYear.getSchoolYears()[x].getObject1().name)) {
-				System.out.println("Το έτος "+SchoolYear.getSchoolYears()[x].getYear()+" την τάξη του προνηπίου");
+				System.out.println("The year "+SchoolYear.getSchoolYears()[x].getYear()+" the PreKindergarten class");
 			}
 			else if (Teachers[i].name.equals(SchoolYear.getSchoolYears()[x].getObject2().name)) {
-				System.out.println("Το έτος "+SchoolYear.getSchoolYears()[x].getYear()+" την τάξη του νηπίου");
+				System.out.println("The year "+SchoolYear.getSchoolYears()[x].getYear()+" the Kindergarten class");
 			}
 		}		
 	}
 }
 
-//Μέθοδος όπου αναζητεί στοιχεία δασκάλου με τον ΑΜΚΑ όπου εισάγουμε και στην συνέχεια τα εμφανίζει
+//Method where it searches for teacher data with the Social Security Number where we enter it and then displays it
 public static void AMKA_Index() {
 	Scanner scanner=new Scanner(System.in);
-	boolean x=false;//Βοηθητική μεταβλητη όπου μας υποδεικνύει αν ο ΑΜΚΑ που εισήγαγε ο χρήστης υπάρχουν στην μνήμη
+	boolean x=false;//Auxiliary variable where it tells us if the Social Security Number entered by the user exists in memory
 	while (x==false) {
-		System.out.println("Παρακαλώ εισάγετε τον ΑΜΚΑ του καθηγητή: \n[(πχ 17077732902) ή εισάγετε 0 για επιστροφή στο Μενού]");
+		System.out.println("Please enter the teacher's Social Security Number: \ n [(eg 17077732902) or enter 0 to return to the Menu]");
 		String input = scanner.next();
-		//Δίνουμε στον χρήστη την επιλογή να πατήσει 0 και να τερματιστεί η αναζήτηση
+		//We give the user the option to press 0 and end the search
 		if (input.equals("0")) {
-			x=true;//Σταματάμε τον βρόχο επειδή ο χρήστης εισήγαγε 0
+			x=true;//We stop the loop because the user entered 0
 		}
 		else {
-			//Διατρέχουμε τον στατικό πίνακα Teachers
+			//We go through the static table Teachers
 			for (int i=0;i<count;i++) { 
 				if (Teachers[i].AMKA.equals(input)) {
-					//Αν βρόυμε αντικείμενο τύπου Teacher με ΑΜΚΑ (μεταβλητή στιγμιοτύοπου) όπου είναι ίδιος με την εισαγωγή εμφανίζουμε τα στοιχεία του συγκεκριμένου δασκάλου
-					System.out.println("\nΤα στοιχεία του δασκάλου με ΑΜΚΑ '"+input+"' είναι τα εξής:\nId:"+Teachers[i].id+"\nΟνοματεπώνυμο:"+Teachers[i].name);
-					x=true;//Σταματάμε τον βρόχο επειδή βρέθηκε ο δάσκαλος 
+					//If we find an object of type Teacher with Social Security Number (instance variable) where it is the same as the input we display the data of the specific teacher
+					System.out.println("\nThe details of the teacher with Social Security Number'"+input+"' are the following:\nId:"+Teachers[i].id+"\nFull name:"+Teachers[i].name);
+					x=true;//We stop the loop because the teacher was found
 				}
 			}
 		}
 		if (x==false) {
-			//Εμφανίζουμε κατάλληλο μύνημα καθώς γνωρίζουμε ότι δεν βρέθηκε αντικείμενο τύπου Teacher με ΑΜΚΑ (μεταβλητή στιγμιοτύπου) όπου είναι ίδιος με την εισαγωγή του χρήστη
-			System.out.println("Ο ΑΜΚΑ που εισάγατε δεν αντιστοιχεί σε κάποιον δάσκαλο");	
+			//We display an appropriate message as we know that no Teacher object was found with Social Security Number (instance variable) where it is the same as the user input
+			System.out.println("The Social Security Number you entered does not correspond to a teacher");	
 		}	
 	}
 }

@@ -1,33 +1,33 @@
 
 public class Student {
-private String id;//Μοναδικό id μαθητή
-private String name;//Ονοματεπώνυμο μαθητή
-private String date_birth;//Ημερομηνία γέννησης μαθητή
-private static Student[] Students = new Student[100];//Στατικός πίνακας που περιέχει όλα τα αντικείμενα τύπου Student
-private static int count=0;//Μετρητής αντικειμένων τύπου Student όπου χρησιμεύει στην αποθήκευση των αντικειμένων στον στατικό πίνακα
+private String id;//Unique student id
+private String name;//Student name
+private String date_birth;//Student's date of birth
+private static Student[] Students = new Student[100];//Static table containing all Student type objects
+private static int count=0;//Student type counter where it is used to store objects in the static table
 
-//Κατασκευαστής κλάσης Student
+//Constructor of Student class
 public Student(String name, String date_birth) {
-	Students[count]=this;//Αποθήκευση αντικειμένων στον στατικό πίνακα Students
+	Students[count]=this;//Save items to the Students static table
 	count++;
-	this.id = "S"+SchoolYear.gety()+"00"+count;//Κατασκευή id αντικειμένων τύπου Student της μορφης S18001
+	this.id = "S"+SchoolYear.gety()+"00"+count;//Construction of student type id objects of the S18001 format
 	this.name = name;
 	this.date_birth = date_birth;
 }
 
-//Μέθοδος όπου εκτυπώνει όλους τους μαθητές οπου έχουν φοιτήσει ή φοιτούν στον νηπιακό σταθμό
+//Method where it prints all students who have attended or are attending nursery school
 public static void Print_Students() {
 	for (Student s: Students)
 		if (s!=null) {
-			System.out.println(s.name+" [ Κωδικός ID:"+s.id+", Ημ.Γέννησης:"+s.date_birth+" ]");
+			System.out.println(s.name+" [ ID code:"+s.id+", Date of Birth:"+s.date_birth+" ]");
 		}
 }
-//Μέθοδος όπου επιστρέφει την μεταβλητή στιγμιοτύπου id
+//Method where returns the instance variable id
 public String getId() {
 	return id;
 }
 
-//Μέθοδος όπου επιστρέφει την μεταβλητη στιγμιοτύπου name
+//Method where it returns the instance variable name
 public String getName() {
 	return name;
 }

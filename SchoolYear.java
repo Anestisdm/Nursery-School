@@ -4,8 +4,8 @@ public class SchoolYear {
 private String year;//School year of attendance
 private Teacher object1;//Saves the pre-school teacher in the specific school year
 private Teacher object2;//Saves the infant's teacher in that school year
-private Student[] Students1;//Stores Student objects where they depict preschool students for the specific school year
-private Student[] Students2;//Stores Student items where they depict infant students for the specific school year
+private Student[] Students1;//Stores Student objects where they depict PreKindergarten students for the specific school year
+private Student[] Students2;//Stores Student items where they depict Kindergarten students for the specific school year
 private static SchoolYear[] SchoolYears= new SchoolYear[100];//Static table containing all SchoolYears objects
 private static int count = 0;//SchoolYear object counter where it is used to store objects in the static table but also to run through the specific table and avoid the NullPointerException exception
 private static int y=18;//Auxiliary static variable that used to build the id of Student and Teacher objects
@@ -22,35 +22,35 @@ public SchoolYear(String year, Student[] Students1, Teacher object1, Student[] S
 	this.object2 = object2;
 }
 
-//Μέθοδος όπου επιστρέφει την μεταβλητή στιγμιοτύπου year
+//Method where returns the instance variable year
 public String getYear() {
 	return year;
 }
-//Μέθοδος όπου επιστρέφει την μεταβλητή στιγμιοτύπου object1
+//Method where returns the instance variable object1
 public Teacher getObject1() {
 	return object1;
 }
-//Μέθοδος όπου επιστρέφει την μεταβλητή στιγμιοτύπου object2
+//Method where returns the instance variable object2
 public Teacher getObject2() {
 	return object2;
 }
-//Μέθοδος όπου επιστρέφει τον στατικό πίνακα SchoolYears[]
+//Method where returns the static table SchoolYears[]
 public static SchoolYear[] getSchoolYears() {
 	return SchoolYears;
 }
-//Μέθοδος όπου επιστρέφει την στατική μεταβλητή count
+//Method where returns the static variable count
 public static int getCount() {
 	return count;
 }
-//Μέθοδος όπου επιστρέφει την στατική μεταβλητή y
+//Method where returns the static variable y
 public static int gety() {
 	return y;
 }
 
-//Βοηθητική μέθοδος της Student_Registration()
+//Auxiliary method of Student_Registration()
 public static boolean Availability(Student[] array) {
 	boolean av=false;
-	//Ελέγχουμε αν στην συγκεκριμένη τάξη την τρέχουσα σχολική χρονιά υπάρχει διαθεσιμότητα
+	//We check if there is availability in this class in the current school year
 	for (int i=0;i<array.length;i++) {
 		if (array[i]==null) {
 			av=true;
@@ -62,45 +62,45 @@ public static boolean Availability(Student[] array) {
 	}
 	return av;
 }
-//Βοηθητική μέθοδος της Student_Registration()
+//Auxiliary method of Student_Registration()
 public static void Registration(boolean av, Student[] array) {
 	Scanner scanner=new Scanner (System.in);
 	Scanner scanner1=new Scanner (System.in);
 	if (av==true) {
-		//Επειδή υπάρχει διαθεσιμότητα στην συγκεκριμένη τάξη στην τρέχουσα σχολική χρονιά, ζητάμε απο τον χρήστη να εισάγει τα απαραίτητα στοιχεία του μαθητή και πραγματοποιούμε την εγγραφή
-		System.out.println("Παρακαλώ εισάγετε το όνομα του μαθητή: (πχ Χρήστος Παπαδόπουλος)");
+		//Because there is availability in this class in the current school year, we ask the user to enter the necessary information of the student and we register
+		System.out.println("Please enter the student's name: (eg Christos Papadopoulos)");
 		String name = scanner.nextLine();
-		System.out.println("Παρακαλώ εισάγετε την ημερομηνία γέννησης του μαθητή: (πχ 01/01/2015) ");
+		System.out.println("Please enter the date of birth of the student: (eg 01/01/2015) ");
 		String date = scanner1.next();
 		for (int i=0;i<array.length;i++) {
 			if(array[i]==null) {
 				Student s1 = new Student(name,date);
 				array[i]=s1;
-				System.out.println("Η διαδικασία ολοκληρώθηκε επιτυχώς!");
+				System.out.println("The process was completed successfully!");
 				break;
 			}
 		}
 	}
 	else {
-		////Επειδή δεν υπάρχει διαθεσιμότητα στην συγκεκριμένη τάξη στην τρέχουσα σχολική χρονιά εμφανίζουμε κατάλληλο μήνυμα
-			System.out.println("Δεν υπάρχει διαθεσιμότητα");
+		//Because there is no availability in this class in the current school year we display an inforamtive message
+			System.out.println("There is no availability");
 	}
 
 }
-//Μέθοδος όπου πραγματοποιεί εγγραφή νέου φοιτητή στην τρέχουσα σχολική χρονιά
+//Method where a new student register in the current school year
 public static void Student_Registration() {
 	Scanner scanner=new Scanner(System.in);
-	boolean av;//Βοηθητική μεταβλητή όπου θα μας δείχνει την διαθεσιμότητα της τάξης όπου επέλεξε ο χρήστης
-	boolean x=false;//Βοηθητική μεταβλητή όπου μας υποδεικνύει αν η επιλογή του χρήστη ήταν μέσα στις αναμενόμενες
+	boolean av;//Auxiliary variable where it will show us the availability of the class where the user has chosen
+	boolean x=false;//Auxiliary variable where it indicates to us if the user's selection was within the expected
 	while (x==false) {
-		System.out.println("Σε ποιο τμήμα θέλετε να πραγματοποιήσετε την εγραφή του μαθητή; \n[Εισάγετε 1:Προνήπιο ή 2:Νήπιο ή 0:Eπιστροφή στο Μενού]");
+		System.out.println("In which section do you want to enroll the student? \ and [Enter 1: PreKindergarten or 2: kindergarten 0: Return to Menu]");
 		String input = scanner.next();
 		if (input.equals("1")) {
-			//Αρχικά βρίσκουμε την διαθεσιμότητα στην τρέχουσα σχολική χρονιά και στην τάξη όπου επέλεξε ο χρήστης
+			//First we find the availability in the current school year and in the classroom where the user chose
 			av=SchoolYear.Availability(SchoolYears[count-1].Students1);
-			//Στην συνέχεια πραγματοποιούμε την εγγραφή αν η διαθεσιμότητα μας το επιτρέπει
+			//Then we register if our availability allows
 			SchoolYear.Registration(av,SchoolYears[count-1].Students1);
-			x=true;//Σταματάμε τον βρόχο επειδή ολοκληρώθηκε η διαδικασία
+			x=true;//We stop the loop because the process is complete
 		}
 		else if (input.equals("2")){
 			av=SchoolYear.Availability(SchoolYears[count-1].Students2);
@@ -108,128 +108,128 @@ public static void Student_Registration() {
 			x=true;
 			}
 		else  if (input.equals("0")) {
-			break;//Σταματάμε τον βρόχο ο χρήστης εισήγαγε 0
+			break;//We stop the loop the user entered 0
 		}
 		else {
-			System.out.println("Λάθος εισαγωγή!!");
-			x=false;//Συνεχίζουμε τον βρόχο επειδή ο χρήστης δεν εισήγαγε κάποια αναμενόμενη επιλογή
+			System.out.println("Wrong input!!");
+			x=false;//We continue the loop because the user did not enter an expected option
 		}
 	}
 }
-//Βοηθητική μέθοδος της Student_Unregistration()
+//Auxiliary method of Student_Unregistration()
 public static boolean Student_Index(String id,Student [] array) {
 	Scanner scanner=new Scanner(System.in);
-	boolean Find_Id=false;//Αρχικοποίηση μεταβλητής όπου θα επιστραφεί
+	boolean Find_Id=false;//Initialize a variable where it will be returned
 	for (int i=0;i<array.length;i++) {
 		if (array[i]!=null) {
 			if (array[i].getId().equalsIgnoreCase(id)){
-				//Ελέγχουμε εάν το id υπάρχει στον συγκεκριμένο πίνακα τύπου Student[] και αν το βρούμε εμφανίζουμε κατάλληλο μήνυμα για την ολοκλήρωση της διαγραφής
+				//We check if the id exists in the specific table type Student [] and if we find it we display an appropriate message to complete the deletion
 				Find_Id=true;
-				System.out.println("Είστε σίγουροι ότι επιθυμείτε την διαγραφή του μαθητή; \n[Εισάγετε 1:Ναι ή 0:Όχι]");
+				System.out.println("Are you sure you want to delete the student? \ n [Enter 1: Yes or 0: No]");
 				boolean x=false;
 				while (x==false) {
 					String input = scanner.next();
 					if (input.equals("1")) {
-						//Αν η απάντηση είναι θετική προχωράμε σε διαγραφη του μαθητή με το συγκεκριμένο id και εμφανίζουμε κατάλληλο μήνυμα
+						//If the answer is yes we proceed to delete the student with the specific id and display an appropriate message
 						array[i]=null;
-						System.out.println("Η διαγραφή ολοκληρώθηκε επιτυχώς!");
-						x=true;//Σταματάμε τον βρόχο έτσι ώστε να σταματήσει την αναζήτηση
+						System.out.println("Deletion completed successfully!");
+						x=true;//We stop the loop so that it stops searching
 					}
 					else if (input.equals("0")) {
-						//Αν η απάντηση είναι αρνητική σταματάμε την διαδικασία
-						System.out.println("Η διαγραφή δεν πραγματοποιήθηκε!");
+						//If the answer is no we stop the process
+						System.out.println("Deletion did not take place!");
 						x=true;
 					}
 					else {
-						//Αν η απάντηση δεν είναι στις αναμενόμενες συνεχίζουμε να ζητάμε κάποια απάντηση
-						System.out.println("Λάθος επιλογή");
-						System.out.println("Παρακαλώ εισάγετε κάποια διαθέσιμη επιλογή: \n[Εισάγετε 1:Ναι ή 0:Όχι]");
+						//If the answer is not as expected we continue to ask for an answer
+						System.out.println("Wrong choice");
+						System.out.println("Please enter an available option: \ n [Enter 1: Yes or 0: No]");
 					}
 				}
-				break;//Σταματάμε τον εξωτερικό βρόχο καθώς βρέθηκε το id
+				break;//We stop the outer loop as the id was found
 			}
 		}
 	}
 	return Find_Id;
 }
-//Μέθοδος όπου πραγματοποιεί διαγραφή νέου φοιτητή στην τρέχουσα σχολική χρονιά
+//Method where create a new student in the current school year
 public static void Student_Unregistration() {
 	Scanner scanner=new Scanner(System.in);
-	boolean x=false;//Βοηθητική μεταβλητή όπου μας υποδεικνύει αν ο χρήστης εισήγαγε καταχωρημένο id της τρέχουσας σχολικής χρονιάς
+	boolean x=false;//Auxiliary variable where indicates if the user entered a registered id of the current school year
 	while (x==false) {
-		x=true;//Διακοπή βρόχου καθώς σκοπός είναι να εκτελεσθεί τουλάχιστον μια φορά ο βρόχος
-		System.out.println("Παρακαλώ εισάγετε το id του μαθητή: \n[(πχ S190011) ή εισάγετε 0 για επιστροφή στο Μενού]");
+		x=true;//Stop loop as the purpose is to execute the loop at least once
+		System.out.println("Please enter the student's id: \ n [(eg S190011) or enter 0 to return to Menu]");
 		String input = scanner.next();
 		if (input.equals("0")) {
-			break;//Αν ο χρηστης επιλέξει  0 βγαίνουμε απο τον βρόχο
+			break;//If the user selects 0 we exit the loop
 		}
 		else {
-			//Κάνουμε την πρώτη αναζήτηση στον πίνακα με τους μαθητές του προνηπίου (τιμή επιστροφής boolean)
+			//We do the first search in the table with the PreKindergarten students (boolean return price)
 			boolean Find_Id=SchoolYear.Student_Index(input,SchoolYears[count-1].Students1);
 			if (Find_Id==false) {
-				//Ελέγχουμε αν βρέθηκε στον πίνακα με τους μαθητές του προνηπίου το συγκεκριμένο id, αλλιως πραγματοποιούμε δεύτερη αναζήτηση στον πίνακα με τους μαθητές του νηπίου
+				//We check if the specific id was found in the table with the PreKindergarten students, otherwise we make a second search in the table with the pre-school students
 				Find_Id=SchoolYear.Student_Index(input,SchoolYears[count-1].Students2);
 			}
 			if (Find_Id==false) {
-				//Ελέγχουμε αν βρέθηκε στον πίνακα με τους μαθητές του νηπίου το συγκεκριμένο id, αλλίως εκτυπώνουμε κατάλληλο μήνυμα και εκκινούμε την διαδικασία απο την αρχή
-				System.out.println("Λάθος id μαθητή!!");
-				x=false;//Συνέχιση βρόχου
+				//Check if the specific id was found in the table with the Kindergarten students, otherwise we print an appropriate message and start the process from the beginning
+				System.out.println("Wrong student id !!");
+				x=false;//Continue loop
 			}
 		}
 	}
 }
-//Βοηθητική μέθοδος της SchoolYear_Data()
+//Auxiliary method of SchoolYear_Data()
 public static void Print_Data(Teacher object, Student[] array) {
-	//Εκτύπωση κατάλληλου μηνύματος και εκτύπωση καθηγητή για την συγκεκριμένη σχολική χρονιά και τάξη
-	System.out.println("Δάσκαλος:\n"+object.getName()+"\nΜαθητές:");
+	//Print an appropriate message and print a teacher for the specific school year and class
+	System.out.println("Teacher:\n"+object.getName()+"\nStudents:");
 	for (int i=0;i<array.length;i++) {
-		//Εκτύπωση όλων των μαθητών της συγκεκριμένης σχολικής χρονιάς και τάξης
+		//Print all students of the specific school year and class
 		if (array[i]!=null) {
 		System.out.println(array[i].getName());
 		}
 	}
 }
-//Μέθοδος όπου επιστρέφει τα στοιχεία συγκεκριμένης σχολικής χρονιάς
+//Method where it returns the data of a specific school year
 public static void SchoolYear_Data() {
 	Scanner scanner=new Scanner(System.in);
-	boolean x=false;//Βοηθητική μεταβλητή όπου μας υποδεικνυει αν η σχολική χρονιά εισήχθει σωστά και είναι καταχωρημένη
+	boolean x=false;//Auxiliary variable where it indicates if the school year is entered correctly and is registered
 	while (x==false) {
-		System.out.println("Παρακαλώ εισάγετε σχολική χρονιά: \n[(πχ 2018-2019) ή εισάγετε 0 για επιστροφή στο Mενού]");
+		System.out.println("Please enter school year: \ n [(eg 2018-2019) or enter 0 to return to Menu]");
 		String input1 = scanner.next();
 		if (input1.equals("0")) {
-			break;//Αν ο χρηστης επιλέξει  0 βγαίνουμε απο τον βρόχο
+			break;//If the user selects 0 we exit the loop
 		}
 		else {
 			for (int i=0;i<count;i++) {
 				if (SchoolYears[i].year.equals(input1)) {
-					//Ανζητούμε την σχολική χρονιά που εισήγαγε ο χρήστης
+					//We are looking for the school year entered by the user
 					x =true;
 					boolean y=false;
 					while (y==false) {
-						//Ζητάμε απο τον χρήστη σε ποια τάξη επιθυμεί να πραγματοποιήσει αναζήτηση και εκτυπώνουμε τα κατάλληλα δεδομένα
-						System.out.println("Παρακαλώ εισάγετε σε ποια τάξη θέλετε να πραγματοποιήσετε αναζήτηση: \n[Εισάγετε 1:Προνήπιο ή 2:Νήπιο ή 0:Eπιστροφή στο Μενού]");
+						//We ask the user in which class he wants to search and we print the appropriate data
+						System.out.println("Please enter in which class you want to search: \ n [Enter 1: PreKindergarten or 2: Kindergarten or 0: Return to Menu]");
 						String input2 = scanner.next();
 						if (input2.equals("1")) {
 							SchoolYear.Print_Data(SchoolYears[i].object1, SchoolYears[i].Students1);
-							y=true;//Διακοπή εσωτερικού βρόχου καθώς ο χρήστης εισήγαγε αναμενόμενη επιλογή
+							y=true;//Stop inner loop as user enters expected option
 						}
 						else if (input2.equals("2")) {
 							SchoolYear.Print_Data(SchoolYears[i].object2, SchoolYears[i].Students2);
-							y=true;//Διακοπή εσωτερικού βρόχου
+							y=true;//Internal loop interruption
 						}
 						else if (input2.equals("0")) {
-							y=true;//Διακοπή εσωτερικού βρόχου
+							y=true;//Internal loop interruption
 						}
 						else {
-							System.out.println("Λάθος εισαγωγή");
+							System.out.println("Wrong input");
 						}
 					}
-					break;//Διακοπή εξωτερικού βρόχου καθώς η σχολική χρονιά βρέθηκε
+					break;//Stop external loop as the school year is found
 				}
 			}
 			if (x==false) {
-				//Εκτύπωση κατάλληλου μηνύματος όταν η σχολική χρονία δεν έχει βρεθεί
-				System.out.println("Η εισαγωγή που πραγματοποιήσατε είτε είναι λάθος είτε δεν υπάρχουν δεδομένα για την συγκεκριμένη χρονία");
+				//Print an appropriate message when the school year has not been found
+				System.out.println("The input you made is either incorrect or there is no data for that year");
 			}
 		}
 	}
