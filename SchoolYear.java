@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
 public class SchoolYear {
-private String year;//Σχολική χρονιά φοίτησης
-private Teacher object1;//Αποθηκεύει τον δάσκαλο του προνηπίου την συγκερκιμενη σχολική χρονιά
-private Teacher object2;//Αποθηκεύει τον δάσκαλο του νηπίου την συγκερκιμενη σχολική χρονιά
-private Student[] Students1;//Αποθηκέυει αντικείμενα τύπου Student όπου απεικονίζουν τους μαθητές του προνηπίου για την συγκεκριμένη σχολική χρονιά
-private Student[] Students2;//Αποθηκέυει αντικείμενα τύπου Student όπου απεικονίζουν τους μαθητές του νηπίου για την συγκεκριμένη σχολική χρονιά
-private static SchoolYear[] SchoolYears= new SchoolYear[100];//Στατικός πίνακας που περιέχει όλα τα αντικείμενα τύπου SchoolYears
-private static int count = 0;//Μετρητής αντικειμένων τύπου SchoolYear όπου χρησιμεύει στην αποθήκευση των αντικειμένων στον στατικό πίνακα αλλα και στο να διατρέχουμε τον συγκεκριμένο πίνακα και να αποφεύγουμε την εξαίρεση NullPointerException
-private static int y=18;//Βοηθητική στατική μεταβλητή που χρησιμεύει στο χτίσιμο του id των αντικειμένων τύπου Student και τύπου Teacher
+private String year;//School year of attendance
+private Teacher object1;//Saves the pre-school teacher in the specific school year
+private Teacher object2;//Saves the infant's teacher in that school year
+private Student[] Students1;//Stores Student objects where they depict preschool students for the specific school year
+private Student[] Students2;//Stores Student items where they depict infant students for the specific school year
+private static SchoolYear[] SchoolYears= new SchoolYear[100];//Static table containing all SchoolYears objects
+private static int count = 0;//SchoolYear object counter where it is used to store objects in the static table but also to run through the specific table and avoid the NullPointerException exception
+private static int y=18;//Auxiliary static variable that used to build the id of Student and Teacher objects
 
-//Κατασκευαστής κλάσης SchoolYear
+//School Year class constructor
 public SchoolYear(String year, Student[] Students1, Teacher object1, Student[] Students2, Teacher object2) {
-	SchoolYears[count]= this;//Αποθήκευση αντικειμένων στον στατικό πίνακα SchoolYears
+	SchoolYears[count]= this;//Storing objects in the school Years static table
 	count++;
-	y++;//Αύξηση της βοηθητικής στατικής μεταβλητής y κάθε φορά όπου δημιουργούμε μια νέα σχολική χρονιά (Προυπόθεση η πρώτη σχολική χρονιά όπου θα εισαχθεί θα είναι η 2018-2019)
+	y++;//Increase of the auxiliary static variable y every time we create a new school year (Prerequisite the first school year where it will be introduced will be 2018-2019)
 	this.year = year;
 	this.Students1= Students1;
 	this.object1 = object1;
