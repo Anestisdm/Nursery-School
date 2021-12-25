@@ -1,5 +1,7 @@
 package Nursery;
 
+import javax.swing.*;
+
 public class Student {
 private String id;//Unique student id
 private String name;//Student name
@@ -18,10 +20,13 @@ public Student(String name, String date_birth) {
 
 //Method where it prints all students who have attended or are attending nursery school
 public static void Print_Students() {
-	for (Student s: Students)
-		if (s!=null) {
-			System.out.println(s.name+" [ ID code:"+s.id+", Date of Birth:"+s.date_birth+" ]");
+	String students = "";
+	for (Student s: Students) {
+		if (s != null) {
+			students += s.name + " [ ID code:" + s.id + ", Date of Birth:" + s.date_birth + " ]\n";
 		}
+	}
+	JOptionPane.showMessageDialog(null,"STUDENTS:\n"+students);
 }
 //Method where returns the instance variable id
 public String getId() {
