@@ -53,7 +53,7 @@ public static void Teacher_Classes() {
 		}
 		Returntxt+=c;
 	}
-	JOptionPane.showMessageDialog(null,"TEACHER CLASSES\n"+Returntxt);
+	JOptionPane.showMessageDialog(null,"TEACHER CLASSES\n"+Returntxt,"Classes",JOptionPane.INFORMATION_MESSAGE);
 }
 
 //Method where it searches for teacher data with the Social Security Number where we enter it and then displays it
@@ -77,7 +77,7 @@ public static void AMKA_Index() {
 		}
 		if (x==false) {
 			//We display an appropriate message as we know that no Teacher object was found with Social Security Number (instance variable) where it is the same as the user input
-			JOptionPane.showMessageDialog(null,"The Social Security Number you entered does not correspond to a teacher");
+			JOptionPane.showMessageDialog(null,"The Social Security Number you entered does not correspond to a teacher","Error",JOptionPane.ERROR_MESSAGE);
 		}	
 	}
 }

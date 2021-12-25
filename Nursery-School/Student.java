@@ -26,7 +26,7 @@ public static void Print_Students() {
 			students += s.name + " [ ID code:" + s.id + ", Date of Birth:" + s.date_birth + " ]\n";
 		}
 	}
-	JOptionPane.showMessageDialog(null,"STUDENTS:\n"+students);
+	JOptionPane.showMessageDialog(null,"STUDENTS:\n"+students, "Students", JOptionPane.INFORMATION_MESSAGE);
 }
 //Method where returns the instance variable id
 public String getId() {

@@ -1,6 +1,7 @@
 package Nursery;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Scanner;
 
 public class Main_Nursery {
@@ -22,14 +23,16 @@ public class Main_Nursery {
 			System.out.println("   Enter number [1-6] :   ");
 			x= scanner.nextInt();*/
 			//f = new JFrame();
-			x = JOptionPane.showInputDialog(null, "\n~~~~~~~~~~~~~~~~ Options Menu ~~~~~~~~~~~~~~~~" +
+			ImageIcon icon = new ImageIcon("Nursery-School/images/Kindergarten.png");
+			Image image2 = icon.getImage().getScaledInstance(190,190,0);
+			x = (String)JOptionPane.showInputDialog(null, "\n~~~~~~~~~~~~~~~~ Options Menu ~~~~~~~~~~~~~~~~" +
 								"\n1.Print all students who have attended the school" +
-								"\n2.Registration of a new student in the current school year" +
+								"\n2.Register a new student in the current school year" +
 								"\n3.Delete student from the current school year" +
 								"\n4.Search school year data" +
 								"\n5.Search for classes taken by each teacher in the school" +
 								"\n6.Search for teacher data via social security number" +
-								"\n   Enter number [1-6] :   ");
+								"\n   Enter number [1-6] :   ","Menu",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(image2),null,null);
 
 			if(x!=null) {
 				switch (x) {
@@ -60,11 +63,11 @@ public class Main_Nursery {
 						break;
 					default:
 						//System.out.println("Wrong Input!");
-						JOptionPane.showMessageDialog(null, "Wrong Input!");
+						JOptionPane.showMessageDialog(null, "Wrong Input!", "Error",JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			else{
-				int a = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?");
+				int a = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Exit",JOptionPane.WARNING_MESSAGE);
 				if (a == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				} else if (a == JOptionPane.NO_OPTION || a == JOptionPane.CANCEL_OPTION) {

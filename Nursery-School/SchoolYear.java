@@ -70,13 +70,17 @@ public static void Registration(boolean av, Student[] array) {
 	if (av==true) {
 		//Because there is availability in this class in the current school year, we ask the user to enter the necessary information of the student and we register
 		String name = JOptionPane.showInputDialog(null, "Please enter the student's name: (eg Christos Papadopoulos)");
-		String date = JOptionPane.showInputDialog(null, "Please enter the date of birth of the student: (eg 01/01/2015) ");
-		for (int i=0;i<array.length;i++) {
-			if(array[i]==null) {
-				Student s1 = new Student(name,date);
-				array[i]=s1;
-				JOptionPane.showMessageDialog(null, "The process was completed successfully!");
-				break;
+		if (name!=null) {
+			String date = JOptionPane.showInputDialog(null, "Please enter the date of birth of the student: (eg 01/01/2015) ");
+			if (date != null) {
+				for (int i = 0; i < array.length; i++) {
+					if (array[i] == null) {
+						Student s1 = new Student(name, date);
+						array[i] = s1;
+						JOptionPane.showMessageDialog(null, "The process was completed successfully!");
+						break;
+					}
+				}
 			}
 		}
 	}
@@ -90,7 +94,7 @@ public static void Registration(boolean av, Student[] array) {
 public static void Student_Registration() {
 	boolean av;//Auxiliary variable where it will show us the availability of the class where the user has chosen
 	boolean x=false;//Auxiliary variable where it indicates to us if the user's selection was within the expected
-	String[] options = {"PreKindergarten", "kindergarten"};
+	String[] options = {"PreKindergarten", "Kindergarten"};
 	while (x==false) {
 		String input = (String)JOptionPane.showInputDialog(null, "In which class do you want to enroll the student?",
 				"Class", JOptionPane.QUESTION_MESSAGE,null, options,null);
@@ -150,7 +154,7 @@ public static void Student_Unregistration() {
 			}
 			if (Find_Id==false) {
 				//Check if the specific id was found in the table with the Kindergarten students, otherwise we print an appropriate message and start the process from the beginning
-				JOptionPane.showMessageDialog(null, "Wrong student id !!");
+				JOptionPane.showMessageDialog(null, "Wrong student id !!","Error",JOptionPane.ERROR_MESSAGE);
 				x=false;//Continue loop
 			}
 		}
@@ -205,7 +209,7 @@ public static void SchoolYear_Data() {
 			}
 			if (x==false) {
 				//Print an appropriate message when the school year has not been found
-				JOptionPane.showMessageDialog(null, "The input you made is either incorrect or there is no data for that year");
+				JOptionPane.showMessageDialog(null, "The input you made is either incorrect or there is no data for that year","Error",JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
