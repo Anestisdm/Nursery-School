@@ -9,7 +9,7 @@
 Application for a Nursery School 
 
 ### 1 - Scope
-This an academic project that implements with Java programming an Information System for Nursery School. The Nursery school consists of two classes, the pre-kindergarten and the kindergarten. In every school year there is a maximum capacity of 100 students in each class.
+This an academic project that was implemented with Java programming an Information System for Nursery School. The Nursery school consists of two classes, the pre-kindergarten and the kindergarten. In every school year there is a maximum capacity of 100 students  and one teacher in each class.
 
 ### 2 - Features
 * Print all students who have attended the school from past to the current school year
