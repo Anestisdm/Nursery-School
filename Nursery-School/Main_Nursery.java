@@ -12,7 +12,7 @@ public class Main_Nursery {
 		String x = "1";//Auxiliary variable that helps us to terminate the application
 
 		while (x != "0") {
-			//Print Options menu
+			//Print Option menu with UI
 			ImageIcon icon = new ImageIcon("Nursery-School/images/Kindergarten.png");
 			Image image2 = icon.getImage().getScaledInstance(190,190,0);
 			x = (String)JOptionPane.showInputDialog(null, "\n~~~~~~~~~~~~~~~~ Options Menu ~~~~~~~~~~~~~~~~" +
