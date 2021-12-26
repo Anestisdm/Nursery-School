@@ -13,16 +13,6 @@ public class Main_Nursery {
 
 		while (x != "0") {
 			//Print Options menu
-			/*System.out.println("\n~~~~~~~~~~ Options Menu ~~~~~~~~~~");
-			System.out.println("1.Print all students who have attended the school");
-			System.out.println("2.Registration of a new student in the current school year");
-			System.out.println("3.Delete student from the current school year");
-			System.out.println("4.Search school year data");
-			System.out.println("5.Search for classes taken by each teacher in the school");
-			System.out.println("6.Search for teacher data via social security number");
-			System.out.println("   Enter number [1-6] :   ");
-			x= scanner.nextInt();*/
-			//f = new JFrame();
 			ImageIcon icon = new ImageIcon("Nursery-School/images/Kindergarten.png");
 			Image image2 = icon.getImage().getScaledInstance(190,190,0);
 			x = (String)JOptionPane.showInputDialog(null, "\n~~~~~~~~~~~~~~~~ Options Menu ~~~~~~~~~~~~~~~~" +
@@ -62,7 +52,6 @@ public class Main_Nursery {
 						Teacher.AMKA_Index();
 						break;
 					default:
-						//System.out.println("Wrong Input!");
 						JOptionPane.showMessageDialog(null, "Wrong Input!", "Error",JOptionPane.ERROR_MESSAGE);
 				}
 			}
