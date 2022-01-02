@@ -13,7 +13,7 @@ public class Main_Nursery {
 
 		while (x != "0") {
 			//Print Option menu with UI
-			ImageIcon icon = new ImageIcon("Nursery-School/images/Kindergarten.png");
+			ImageIcon icon = new ImageIcon("src/images/Kindergarten.png");
 			Image image2 = icon.getImage().getScaledInstance(190,190,0);
 			x = (String)JOptionPane.showInputDialog(null, "\n~~~~~~~~~~~~~~~~ Options Menu ~~~~~~~~~~~~~~~~" +
 								"\n1.Print all students who have attended the school" +
