@@ -30,7 +30,7 @@ This an academic project that was implemented with Java programming an Informati
 **Steps to run the application**
 1. Clone this repository to Intellij
 2. Run the Main_Nursery application from Intellij
-3. Start using the application and all the features from the main menu
+3. Start using the application and all the features from the main menu that appears
  
 ![image](https://user-images.githubusercontent.com/72802400/147393263-3df11582-803c-4e42-80d8-b97a1319dfb4.png)
 
